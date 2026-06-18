@@ -20,12 +20,24 @@ npm run preview
 
 ## Deploy to GitHub Pages
 
-1. Push this repo to GitHub on the `main` branch.
-2. Go to **Settings → Pages → Build and deployment**.
-3. Set **Source** to **GitHub Actions**.
-4. Push to `main` (or run the workflow manually). The site deploys automatically.
+### One-time setup (required)
 
-Live URL: `https://<your-github-username>.github.io/insta-site/`
+The deploy job will fail with `404 Not Found` until Pages is enabled:
+
+1. Open **[Settings → Pages](https://github.com/squishylemon/insta-site/settings/pages)** for this repo.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not "Deploy from a branch").
+3. Re-run the failed workflow: **Actions → Deploy to GitHub Pages → Re-run all jobs**.
+
+After that, every push to `main` deploys automatically.
+
+Live URL: `https://squishylemon.github.io/insta-site/`
+
+### Troubleshooting
+
+| Error | Fix |
+|-------|-----|
+| `Failed to create deployment (status: 404)` | Pages is not enabled — complete the one-time setup above. |
+| Blank page or missing styles locally | Run `npm run preview` (not `npm run dev`) to test the `/insta-site/` base path. |
 
 ## Customize
 
