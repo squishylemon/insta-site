@@ -2,6 +2,7 @@ import './style.css';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { buildPanels } from './panels.js';
 import { initScrollAnimations } from './scroll.js';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -9,6 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function init() {
+  const container = document.getElementById('smooth-wrapper');
+  buildPanels(container);
+
   if (!prefersReducedMotion) {
     const lenis = new Lenis({
       duration: 1.2,
