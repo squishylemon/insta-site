@@ -8,11 +8,17 @@
     <title>hi</title>
   </head>
   <body>
-    <div class="progress-bar" aria-hidden="true">
-      <div class="progress-bar__fill"></div>
-    </div>
+    <div class="bg-gradient" id="bg" aria-hidden="true"></div>
 
-    <main id="smooth-wrapper"></main>
+    <section class="stage" id="stage">
+      <div class="stage__text">
+        <h1 class="headline morph-text morph-text--a">Hi.</h1>
+        <h1 class="headline morph-text morph-text--b" aria-hidden="true"></h1>
+      </div>
+      <p class="scroll-hint" id="scroll-hint">scroll</p>
+    </section>
+
+    <div class="scroll-spacer" id="scroll-spacer"></div>
 
     <script type="module" src="/src/main.js"></script>
   </body>

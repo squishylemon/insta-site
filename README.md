@@ -1,6 +1,6 @@
 # insta-site
 
-A scroll-based joke site. 100 pinned slides. All of them say hi, basically.
+A scroll-based joke site. Infinite scroll. All of it says hi, basically.
 
 ## Local dev
 
