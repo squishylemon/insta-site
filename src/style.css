@@ -1,0 +1,392 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --color-bg-dark: #000;
+  --color-bg-black: #0a0a0a;
+  --color-bg-gray: #f5f5f7;
+  --color-bg-light: #fff;
+  --color-text-dark: #1d1d1f;
+  --color-text-light: #f5f5f7;
+  --color-muted: #86868b;
+  --color-accent: #2997ff;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  font-family: var(--font-system);
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  overflow-x: hidden;
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-accent);
+  transform-origin: left center;
+}
+
+/* Panels */
+.panel {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel--dark {
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+}
+
+.panel--black {
+  background: var(--color-bg-black);
+  color: var(--color-text-light);
+}
+
+.panel--gray {
+  background: var(--color-bg-gray);
+  color: var(--color-text-dark);
+}
+
+.panel--light {
+  background: var(--color-bg-light);
+  color: var(--color-text-dark);
+}
+
+.panel__inner {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  max-width: 56rem;
+  width: 100%;
+}
+
+.panel__inner--wide {
+  max-width: 72rem;
+}
+
+/* Typography */
+.eyebrow {
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+
+.headline {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.headline--md {
+  font-size: clamp(2rem, 6vw, 4rem);
+}
+
+.subhead {
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
+  font-weight: 400;
+  color: var(--color-muted);
+  margin-top: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.panel--dark .subhead,
+.panel--black .subhead {
+  color: #a1a1a6;
+}
+
+.caption {
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  color: var(--color-muted);
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
+.footnote {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin-top: 1rem;
+}
+
+/* Hero */
+.hero-eyebrow {
+  opacity: 0;
+}
+
+.hero-name {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.hero-tagline {
+  opacity: 0;
+}
+
+/* Tickets */
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat__number {
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat__label {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.tickets-footnote {
+  opacity: 0;
+}
+
+/* Uptime */
+.uptime-viz {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  height: 80px;
+  margin-bottom: 2rem;
+}
+
+.uptime-bar {
+  width: 12px;
+  background: var(--color-text-dark);
+  border-radius: 3px;
+  height: 20%;
+  opacity: 0.15;
+}
+
+.uptime-headline,
+.uptime-sub,
+.uptime-caption {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* WiFi bars */
+.wifi-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  height: 64px;
+  margin-bottom: 2rem;
+}
+
+.wifi-bar {
+  display: block;
+  width: 14px;
+  background: var(--color-text-dark);
+  border-radius: 3px;
+  transform-origin: bottom center;
+  transform: scaleY(0.2);
+  opacity: 0.2;
+}
+
+.wifi-bar:nth-child(1) { height: 25%; }
+.wifi-bar:nth-child(2) { height: 45%; }
+.wifi-bar:nth-child(3) { height: 65%; }
+.wifi-bar:nth-child(4) { height: 100%; }
+
+.fast-headline,
+.fast-sub {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Battery */
+.battery-wrap {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.battery-icon {
+  width: clamp(100px, 20vw, 140px);
+  height: auto;
+  color: var(--color-text-light);
+}
+
+.electric-headline,
+.electric-sub {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Silhouette / car stages */
+.silhouette-stage,
+.hint-stage,
+.reveal-stage {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: clamp(180px, 35vw, 320px);
+}
+
+.silhouette-img,
+.hint-img,
+.reveal-img {
+  width: min(90vw, 720px);
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.silhouette-img {
+  opacity: 0.35;
+  filter: blur(28px) brightness(0.3);
+}
+
+.hint-img {
+  opacity: 0;
+  filter: blur(8px) brightness(0.5);
+}
+
+.reveal-img {
+  opacity: 0;
+  filter: brightness(0.85);
+}
+
+.silhouette-headline,
+.silhouette-sub,
+.hint-headline,
+.hint-sub,
+.reveal-headline,
+.reveal-sub {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Footer */
+.panel--footer {
+  min-height: 60vh;
+}
+
+.footer-name {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  opacity: 0;
+}
+
+.footer-link {
+  display: inline-block;
+  font-size: 1.125rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  opacity: 0;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  opacity: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-name,
+  .hero-eyebrow,
+  .hero-tagline,
+  .uptime-headline,
+  .uptime-sub,
+  .uptime-caption,
+  .fast-headline,
+  .fast-sub,
+  .electric-headline,
+  .electric-sub,
+  .silhouette-headline,
+  .silhouette-sub,
+  .hint-headline,
+  .hint-sub,
+  .reveal-headline,
+  .reveal-sub,
+  .footer-name,
+  .footer-link,
+  .footer-copy,
+  .tickets-footnote {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .silhouette-img {
+    opacity: 0.35;
+    filter: blur(28px) brightness(0.3);
+  }
+
+  .hint-img {
+    opacity: 0.6;
+    filter: blur(4px) brightness(0.6);
+  }
+
+  .reveal-img {
+    opacity: 1;
+    filter: brightness(0.85);
+  }
+
+  .wifi-bar {
+    transform: scaleY(1);
+    opacity: 0.8;
+  }
+
+  .uptime-bar {
+    opacity: 0.6;
+  }
+}
